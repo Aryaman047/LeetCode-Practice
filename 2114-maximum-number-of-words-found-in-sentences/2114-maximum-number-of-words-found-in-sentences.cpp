@@ -19,21 +19,15 @@ public:
     
     int mostWordsFound(vector<string>& sentences) {
         int n = sentences.size();
-        vector<int> maximumlen(n);
+        int ans = INT_MIN;
         
         
         for(int i=0;i<n;i++)
         {
-            maximumlen[i] = count_words(sentences[i]);
+           int maximumlen = count_words(sentences[i]);
+            ans = max(ans,maximumlen);
         }
         
-        
-        int maximum = *max_element(maximumlen.begin(),maximumlen.end());
-        
-        return maximum;
-        
-        
-        
-        
+    return ans;
     }
 };
