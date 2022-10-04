@@ -11,19 +11,19 @@
  */
 class Solution {
 public:
-    bool hasPathSum(TreeNode* root, int targetSum) {
-            if(root==NULL)
-            return false;
-            
-        if(root->left == NULL  && root->right == NULL)
+    bool hasPathSum(TreeNode* root, int target) {
+           if(root==NULL)
+           {
+               return false;
+           }
+        
+        if(root->left==NULL && root->right==NULL)
         {
-            return ((targetSum - root->val)==0);
+            return ((target-root->val)==0);
         }
         
         
-        return hasPathSum(root->left,targetSum - root->val) || hasPathSum(root->right,targetSum - root->val);
-        
-        
+        return hasPathSum(root->left,target-root->val)||hasPathSum(root->right,target- root->val);
         
     }
 };
